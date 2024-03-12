@@ -11,7 +11,7 @@ from params import params
 from Fish_growth import Weight
 from Biomass_function import Biomass
 from ChemODE_DGS import chemODE_DGS
-
+#added
 class Sump:
     def __init__(self, CO2aq, HCO3, CO32, H, OH,NH4, NH3, NO2,V,exchange_rate):
         self.CO2aq = CO2aq
@@ -36,6 +36,7 @@ class Dosing_pump_HCO3:
         self.HCO3 = HCO3
         self.dosing_compartment = dosing_compartment
         self.V=V
+
 class fish_tank:
     Fish_Biomass_Max = 50000
 
@@ -84,8 +85,8 @@ class biofilter:
         self.B=B
 
     def RHS(self, params, t):
-        dY = chemODE_BIO(self, params,t) #uncomment to run and comment the three other lines (simulation case 1)
-        #dY = chemODE_BIO_HCO3(self, params, t) #uncomment to run and comment the three other lines (simulation case 2_HCO3 dosing only)
+        #dY = chemODE_BIO(self, params,t) #uncomment to run and comment the three other lines (simulation case 1)
+        dY = chemODE_BIO_HCO3(self, params, t) #uncomment to run and comment the three other lines (simulation case 2_HCO3 dosing only)
         #dY = chemODE_BIO_NaOH(self, params, t) #uncomment to run and comment the three other lines (simulation case 2_NaOH dosing only)
         #dY=chemODE_BIO_pH_control(self,params, t) #uncomment to run and comment the three other lines set a threshold for the pH and control it using eiter OH or HCO3
         return dY
@@ -111,7 +112,7 @@ class degasser:
 
 
 def chem(t, S, params, FishTank, B1, DGS):
-    # Assigning values from the array S to the properties of FishTank
+    # Assigning values from the array S to the  FishTank
     FishTank.CO2aq = S[0]
     FishTank.HCO3 = S[1]
     FishTank.CO32 = S[2]
@@ -154,10 +155,6 @@ def chem(t, S, params, FishTank, B1, DGS):
 
     return dY
 
-
-
-
-# time = array([0.0,10])
 
 # initial condition Fish tank
 
