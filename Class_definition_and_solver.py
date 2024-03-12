@@ -11,7 +11,6 @@ from params import params
 from Fish_growth import Weight
 from Biomass_function import Biomass
 from ChemODE_DGS import chemODE_DGS
-#added
 class Sump:
     def __init__(self, CO2aq, HCO3, CO32, H, OH,NH4, NH3, NO2,V,exchange_rate):
         self.CO2aq = CO2aq
