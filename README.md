@@ -8,4 +8,4 @@ The dynRAS model is a model developed to simulate recirculating aquaculture syst
 * Biomass_function.py simulates fish removal using a threshold for the maximum biomass present in the system. The function is called every 14 days.
 * params.py is the list of paramters for the model
 
-While fully functional, the model still need improvement. Notably, numerical issues can be encounter for particular scenarios, particularly when controling the pH through HCO3 for this scenario, we reduced the steepness for the answer of the dosage system which make the dosage system less efficient. 
+While fully functional, the model still need improvement. Notably, numerical issues can be encounter for particular scenarios, particularly when controling the pH through HCO3 for this scenario, the reduction of the steepness for the answer of the dosage system seems to fix these numerical issue however the dosage system becomes less efficient. 
