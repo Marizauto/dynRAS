@@ -1,4 +1,5 @@
-# ![image](https://github.com/Marizauto/dynRAS/assets/128140640/0efad892-3e06-477d-8016-d18fd4da541d) dynRAS 
+# ![image](https://github.com/Marizauto/dynRAS/assets/128140640/e07877ef-3dd7-4905-b259-b6052d9e84cf)
+dynRAS 
 
 The dynRAS model is a model developed to simulate recirculating aquaculture systems (RAS) with a particular emphasis on alkalinity and pH control. It integrates findings from prior research (Pedersen 2018 and Wik 2008) with new functionalities, including the incorporation of the carbonate system to accurately represent alkalinity and pH fluctuations. Developed within the scope of the RASTOOLS project, the model aims to investigate the dynamic of RAS. The RAS components included in dynRAS are simplified to the fish tank, biofilter, and degasser, based on an experimental set-up by Jaffari et al. (2024). The model operates on Python 3.8 and necessitates the scipy, numpy, and math libraries.
 
