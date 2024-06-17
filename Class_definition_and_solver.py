@@ -247,7 +247,6 @@ S0 = [ CO2aq_FT, HCO3_FT, CO32_FT, H_FT, OH_FT, NH4_FT, NH3_FT,NO2_FT, Fishweigh
 for cycle in range(0,10): #  solve the system for 10 cycles of 14 days, after each cycle the fish biomass is reduced back to 50kg/m3, the simulation is in seconds
 
     tspan = [14 * 24 * 60 * 60 * cycle, 14 * 24 * 60 * 60 * (cycle + 1)]
-
     MAlocal = solve_ivp(fun=chem, t_span=tspan, y0=S0,
                         args=(params, FishTank, B1, DGS), method="BDF") # if the solver does not converge try using the method "LSODA" with rtol=1e-12;atol=1e-12
     S0 = MAlocal.y[:, -1].tolist() #reintialize S0 with the last values of the previous cycle
@@ -268,14 +267,14 @@ df_results = pd.DataFrame(MA.y.T, columns=['CO2aq_FT', 'HCO3_FT', 'CO32_FT', 'H_
                                            'NOB_B1', 'CO2aq_DGS', 'HCO3_DGS', 'CO32_DGS', 'H_DGS', 'OH_DGS',
                                            'NH4_DGS', 'NH3_DGS', 'NO2_DGS'])
 df_results.insert(0, 'Time', MA.t)
-# all the result are in mmol/L, to convert to mg/L use the molecular weight of the species
-
+# all the result are in mmol/L, to convert to mg/L use the molecular weight of the species below
 M_NH4 = 18.04
 M_NH3 = 17.03
 M_N= 14.01
 M_NO2 = 46.01
 M_CO2 = 44.01
 M_HCO3= 61.01
+
 # alkalinity is calculated as follow Alkalinity = ([HCO3-] + 2*[CO3--] + [OH-]) * 50.04 to have it in mg/L
 # TAN is calculated as follow TAN = ([NH4] + [NH3])* 14.01 to have it in mg/L
 # NH3 is calculated as NH3-N in mg.l-1 the paper to be compared to experimental data : NH3-N=NH3*14.01
@@ -288,5 +287,29 @@ plt.xlabel('Time (days)')
 plt.ylabel('CO2 (mg/L)')
 plt.legend()
 plt.show()
+#plot alkalinity in the fish tank
+plt.plot(df_results['Time']/(60*60*24),((df_results['HCO3_FT']+2*df_results['CO32_FT']+df_results['OH_FT'])*50.04),label='Alkalinity')
+plt.xlabel('Time (days)')
+plt.ylabel('alkalinity (mg/L as CaCO3)')
+plt.legend()
+plt.show()
+#plot TAN in the fish tank
+plt.plot(df_results['Time']/(60*60*24),(df_results['NH4_FT']+df_results['NH3_FT'])*M_N,label='TAN')
+plt.xlabel('Time (days)')
+plt.ylabel('TAN (mg/L as N)')
+#twinx to plot NH3-N in mg/L
+plt.twinx()
+plt.plot(df_results['Time']/(60*60*24),df_results['NH3_FT']*M_N,label='NH3-N',color='red')
+plt.ylabel('NH3-N (mg/L)')
+plt.legend()
+plt.show()
+# From B1 you can plot the dosing of OH and HCO3
+plt.plot(B1.dosing_time/(60*60*24),B1.dosing_amount_OH,label='OH_dosing')
+plt.plot(B1.dosing_time/(60*60*24),B1.dosing_amount_HCO3,label='HCO3_dosing')
+plt.xlabel('Time (days)')
+plt.ylabel('OH and HCO3 dosing (mg/L/s)')
+plt.legend()
+plt.show()
+
 
 
