@@ -94,8 +94,8 @@ class biofilter:
         #dY = chemODE_BIO(self, params,t) #uncomment to run and comment the three other lines (Jafai et al. 2024 simulation settings)
         #dY = chemODE_BIO_HCO3(self, params, t) #uncomment to run and comment the three other lines (simulation case 1 -HCO3 dosing only)
         #dY = chemODE_BIO_NaOH(self, params, t) #uncomment to run and comment the three other lines (simulation case 2 -NaOH dosing only)
-        dY= chemODE_BIO_alk_control(self,params, t) #uncomment to run and comment the three other (simulation case 3 -NaOH & HCO3 dosing based on CO2)
-        #dY=chemODE_BIO_pH_control(self,params, t) #uncomment to run and comment the three other lines set a threshold for the pH and control it using eiter OH or HCO3
+        #dY= chemODE_BIO_alk_control(self,params, t) #uncomment to run and comment the three other (simulation case 3 -NaOH & HCO3 dosing based on CO2)
+        dY=chemODE_BIO_pH_control(self,params, t) #uncomment to run and comment the three other lines set a threshold for the pH and control it using eiter OH or HCO3
         return dY
 
 
@@ -304,12 +304,23 @@ plt.ylabel('NH3-N (mg/L)')
 plt.legend()
 plt.show()
 # From B1 you can plot the dosing of OH and HCO3
+B1.dosing_time = np.array(B1.dosing_time)
+B1.dosing_amount_OH = np.array(B1.dosing_amount_OH)
+B1.dosing_amount_HCO3 = np.array(B1.dosing_amount_HCO3)
 plt.plot(B1.dosing_time/(60*60*24),B1.dosing_amount_OH,label='OH_dosing')
 plt.plot(B1.dosing_time/(60*60*24),B1.dosing_amount_HCO3,label='HCO3_dosing')
 plt.xlabel('Time (days)')
 plt.ylabel('OH and HCO3 dosing (mg/L/s)')
 plt.legend()
 plt.show()
+# pH of the FishTank
+pH = -np.log10(df_results['H_FT']*10**-3)
+plt.plot(df_results['Time']/(60*60*24),pH,label='pH')
+plt.xlabel('Time (days)')
+plt.ylabel('pH')
+plt.legend()
+plt.show()
+
 
 
 

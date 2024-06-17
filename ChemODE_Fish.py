@@ -3,7 +3,7 @@ import math
 from TAN_prod import NH4_rate
 def chemODE_FISH(Tank, params,t):
     day=t/60/60/24
-    #print(day)
+    print(day)
     interval=24*(day-math.floor(day))
     if interval<12:
         CO2P =((((62.5*(Tank.Fish_weight*10**-3)**-0.3)*1.06**14*(44/32)/(60*60))*Tank.Fish_Biomass/1000)/44/Tank.V)*1.037**interval
