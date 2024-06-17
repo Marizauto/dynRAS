@@ -104,7 +104,7 @@ def chemODE_BIO_HCO3(Tank,params,t):
     d_AOB=Growth[2]
     d_NOB=Growth[3]
     T_HCO3= 200/50.04
-    #desired_HCO3_concentration = 70/ 50.04 uncomment to change the desired concentration
+    #T_HCO3= 70/ 50.04 uncomment to change the desired concentration
     feedback_term_HCO3 = (1 + (Tank.HCO3 / T_HCO3) ** 10)
     add_HCO3 = (0.0001 * Tank.dosing_HCO3.HCO3 / Tank.V) / feedback_term_HCO3
     add_OH= 0
@@ -201,15 +201,15 @@ def chemODE_BIO_pH_control(Tank, params, t):
    #add_OH = 0 #comment or uncomment this line to turn on or off pH control using NaOH
     desired_pH = 7
     T_H = (10 ** -desired_pH) * 10 ** 3 #dosing with OH
-    add_OH = 0  # comment or uncomment this line to turn on or off pH control using NaOH
+    #add_OH = 0  # comment or uncomment this line to turn on or off pH control using NaOH
     feedback_term_OH = (1 + (T_H / Tank.H) ** 10) #dosing with OH
-    #add_OH = (0.0001* Tank.dosing_OH.OH / Tank.V) / feedback_term_OH #dosing with OH
+    add_OH = (0.0001* Tank.dosing_OH.OH / Tank.V) / feedback_term_OH #dosing with OH comment or uncomment this line to turn on or off pH control using NaOH
     Tank.dosing_time.append(t)
     Tank.dosing_amount_OH.append(add_OH)
     T_HCO3 = (10 ** (desired_pH - (-np.log10(0.79*10**-6)))) * Tank.CO2aq  # dosing with HCO3
     feedback_term_HCO3 = (1 + (Tank.HCO3 / T_HCO3) ** 10)  # change initial condition of pH to 7 and 70 for HCO3, if numerical instability occurs try decreasing the power of 10
     add_HCO3 = (0.0001 * Tank.dosing_HCO3.HCO3 / Tank.V) / feedback_term_HCO3  # dosing with HCO3
-    #add_HCO3 = 0 #comment or uncomment this line to turn on or off pH control using HCO3
+    add_HCO3 = 0 #comment or uncomment this line to turn on or off pH control using HCO3
     Tank.dosing_amount_HCO3.append(add_HCO3)
     dCO2aq = (params.k_1*Tank.H)*Tank.HCO3-(params.k1)*Tank.CO2aq+(Tank.Tminus.CO2aq-Tank.CO2aq)*params.F/Tank.V
     dHCO3 = params.k1*Tank.CO2aq-(params.k_1*Tank.H)*Tank.HCO3+params.k_H*Tank.H*Tank.CO32-params.kH*Tank.HCO3-params.muAOB*(Tank.NH3/(params.KNH3+Tank.NH3))*(Tank.HCO3/(params.KAlk+Tank.HCO3))*Tank.AOB*1/(params.YAOB/((1/14)/(7/61.1)))/Tank.V+add_HCO3+(Tank.Tminus.HCO3-Tank.HCO3)*params.F/Tank.V
