@@ -12,3 +12,9 @@ The dynRAS model is a model developed to simulate recirculating aquaculture syst
 * params.py is the list of paramters for the model
 
 While fully functional, the model still needs improvement. Notably, numerical issues can be encounter for particular scenarios, particularly when controling the pH through HCO3 for this scenario, the reduction of the steepness for the answer of the dosage system seems to fix these numerical issue however the dosage system becomes less efficient. The chemical equilibriums have to be consider when setting the innitial conditions, if not the solver will struggle to converge on a solution. e.g. Setting a very high pH, a very high $CO_2$ and a very low $HCO_3^-$ will lead to numerical instabilities.
+
+\bftxt{How to run the different scenarios in Montjouridès et. al.  ?}
+
+* Simulations of experimental trial from Jafari et. al. 2024
+
+To simulate the experimental trial from Jafari et. al. 2024
