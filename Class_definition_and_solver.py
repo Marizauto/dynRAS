@@ -91,11 +91,11 @@ class biofilter:
         self.dosing_amount_HCO3=[] # store the dosing amount of HCO3
         self.dosing_time=[]
     def RHS(self, params, t):
-        #dY = chemODE_BIO(self, params,t) #uncomment to run and comment the three other lines (Jafai et al. 2024 simulation settings)
+        dY = chemODE_BIO(self, params,t) #uncomment to run and comment the three other lines (Jafai et al. 2024 simulation settings)
         #dY = chemODE_BIO_HCO3(self, params, t) #uncomment to run and comment the three other lines (simulation case 1 -HCO3 dosing only)
         #dY = chemODE_BIO_NaOH(self, params, t) #uncomment to run and comment the three other lines (simulation case 2 -NaOH dosing only)
         #dY= chemODE_BIO_alk_control(self,params, t) #uncomment to run and comment the three other (simulation case 3 -NaOH & HCO3 dosing based on CO2)
-        dY=chemODE_BIO_pH_control(self,params, t) #uncomment to run and comment the three other lines set a threshold for the pH and control it using eiter OH or HCO3
+        #dY=chemODE_BIO_pH_control(self,params, t) #uncomment to run and comment the three other lines set a threshold for the pH and control it using eiter OH or HCO3
         return dY
 
 
