@@ -119,7 +119,7 @@ hourly_means_nh4_nh3 = simulation.groupby(simulation['Time_hours'].astype(int))[
 hourly_stds_nh4_nh3 = simulation.groupby(simulation['Time_hours'].astype(int))['NH4_NH3_Combined'].std()
 
 
-Timeseries = pd.read_csv(r"C:\Users\marie\OneDrive\Bureau\STATSfile\Timeserie_module_1.csv")
+Timeseries = pd.read_csv('Experimental_data/Timeserie_module_1.csv')
 Timeseries['date'] = pd.to_datetime(Timeseries['date'])
 
 
