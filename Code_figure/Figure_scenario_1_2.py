@@ -163,26 +163,23 @@ summary_df_NaOH = pd.DataFrame({
                         stats_NaOH_70['Std_CO2_removal'], stats_NaOH_200['Std_CO2_removal']]
 })
 
-width = 0.35  # the width of the bars
+width = 0.35
 
 fig, ax = plt.subplots(figsize=(10, 7))
 
-# Setting positions for HCO3 bars
 positions_HCO3 = np.arange(len(summary_df_HCO3)) - width/2
 
-# Setting positions for NaOH bars
+
 positions_NaOH = np.arange(len(summary_df_NaOH)) + width/2
 
-# Plotting HCO3 data
 
 co2_bars_HCO3 = ax.bar(positions_HCO3 + width/4, summary_df_HCO3['Mean_CO2_removal'], width/2, yerr=summary_df_HCO3['Std_CO2_removal'], capsize=5, label='CO2 Removal - HCO3', color='darkcyan', ecolor='black',edgecolor='black')
 co2_bars_NaOH = ax.bar(positions_NaOH + width/4, summary_df_NaOH['Mean_CO2_removal'], width/2, yerr=summary_df_NaOH['Std_CO2_removal'], capsize=5, label='CO2 Removal - NaOH', color='gray', ecolor='black',edgecolor='black')
-# Plotting NaOH data
+
 tic_bars_NaOH = ax.bar(positions_NaOH - width/4, summary_df_NaOH['Mean_TIC_removal'], width/2, yerr=summary_df_NaOH['Std_TIC_removal'], capsize=5, label='TIC Removal - NaOH', color='gray', hatch='/',ecolor='black',edgecolor='black')
 tic_bars_HCO3 = ax.bar(positions_HCO3 - width/4, summary_df_HCO3['Mean_TIC_removal'], width/2, yerr=summary_df_HCO3['Std_TIC_removal'], capsize=5, label='TIC Removal - HCO3', color='darkcyan', hatch='\\', ecolor='black',edgecolor='black')
 
 
-# Adding labels and legend
 ax.set_ylabel('Removal Efficiency (%)', fontweight='bold')
 ax.set_xticks(np.arange(len(summary_df_HCO3)))
 ax.set_xticklabels(summary_df_HCO3['Concentration'])

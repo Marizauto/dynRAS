@@ -79,8 +79,8 @@ fig1.tight_layout(pad=1.0)
 plt.savefig('figure/figure/Jafarie_et_al_settings/Comparison_simulation_data.png', dpi=300, bbox_inches='tight',pad_inches=0)
 plt.show()
 
-height_in =10/2  # 9.45 inches
-width_in = 8  # 7.48 inches
+height_in =10/2
+width_in = 8
 xticks = np.arange(0, 21, 1)
 yticks = np.arange(0, 25, 5)
 fig1, axs1 = plt.subplots(2, 1, figsize=(width_in, height_in))
@@ -127,7 +127,7 @@ Timeseries['T0_as_8AM_hour'] = (Timeseries['date'].dt.hour + 16) % 24
 T0_as_8AM_hourly_tan_means = Timeseries.groupby('T0_as_8AM_hour')['TAN_DF'].mean()
 T0_as_8AM_hourly_tan_stds = Timeseries.groupby('T0_as_8AM_hour')['TAN_DF'].std()
 
-# Plotting
+
 fig, ax = plt.subplots(figsize=(7, 4))
 bar_width = 0.35
 index_simulation = np.arange(24)

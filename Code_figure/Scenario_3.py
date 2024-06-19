@@ -47,7 +47,7 @@ fig.tight_layout(pad=1.0)
 plt.savefig('figure/scenario_3/dosing.png', dpi=300, bbox_inches='tight',pad_inches=0)
 plt.show()
 
-fig, axs = plt.subplots(2,1, figsize=(width_in,height_in))  # Note the change here
+fig, axs = plt.subplots(2,1, figsize=(width_in,height_in))
 axs[0].scatter(df_70_daily_min['Time']/(60*60*24), df_70_daily_min['CO2aq_FT']*44, color='blue', marker='o', s=4.5, label='Daily $CO_2$ Min/max, alkalinity 70')
 axs[0,].scatter(df_70_daily_max['Time']/(60*60*24), df_70_daily_max['CO2aq_FT']*44, color='blue', marker='o', s=4.5)
 axs[0].scatter(df_200_daily_min['Time']/(60*60*24), df_200_daily_min['CO2aq_FT']*44, color='black', marker='o', s=4.5, label='Daily $CO_2$ Min/max, alkalinity 200')
@@ -78,7 +78,7 @@ fig.tight_layout(pad=1.0)
 plt.savefig('figure/scenario_3/CO2_pH.png', dpi=300, bbox_inches='tight',pad_inches=0)
 plt.show()
 
-fig, axs = plt.subplots(2,1, figsize=(width_in,height_in)) # Note the change here
+fig, axs = plt.subplots(2,1, figsize=(width_in,height_in))
 axs[0].plot(alk_200_df['Time']/(60*60*24),(alk_200_df['NH4_FT'] + alk_200_df['NH3_FT'])*12, color='black',linewidth=1.5,)
 axs[0].set_ylabel(r'$\mathbf{TAN\ (mg\cdot L^{-1}\cdot s^{-1})}$', fontsize=12, fontweight='bold')
 axs[0].set_title('a.', loc='left', fontsize=12, fontweight='bold')
