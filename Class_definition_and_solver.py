@@ -166,6 +166,7 @@ def chem(t, S, params, FishTank, B1, DGS):
 # initial condition Fish tank
 CO2aq_FT = 10/44.1 #10 mg/L / 44.1 g/mol 10/44.1 mmol/L
 HCO3_FT =200/61.01 #(mg/l)==> mmol.l-1
+#HCO3_FT =70/61.01
 CO32_FT =10**-6*10**3
 H_FT = 10**-7.6*10**3
 OH_FT = 10**-6.4*10**3
@@ -184,6 +185,7 @@ Fish_Biomass_FT = Fish_number_FT * Fishweight_FT
 
 CO2aq_B1 =10/44.1
 HCO3_B1 =200/61.01
+#HCO3_B1 =70/61.01
 CO32_B1 =10**-6*10**3
 H_B1 =10**-7.6*10**3
 OH_B1 = 10**-6.5*10**3
@@ -196,6 +198,7 @@ B=0.3*80000*10**3*0.05
 # initial condition DGS
 CO2aq_DGS =10/44.1
 HCO3_DGS =200/61.01
+#HCO3_DGS =70/61.01
 CO32_DGS=10**-6*10**3
 H_DGS =10**-7.6*10**3
 OH_DGS =10**-6.4*10**3
