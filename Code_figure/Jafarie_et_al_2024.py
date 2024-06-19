@@ -76,7 +76,7 @@ axs1[0].set_xlim(0, 141)
 axs1[1].set_xlim(0, 141)
 axs1[2].set_xlim(0, 141)
 fig1.tight_layout(pad=1.0)
-plt.savefig('figure/figure/Jafarie_et_al_settings/Comparison_simulation_data.png', dpi=300, bbox_inches='tight',pad_inches=0)
+plt.savefig('figure/Jafarie_et_al_settings/Comparison_simulation_data.png', dpi=300, bbox_inches='tight',pad_inches=0)
 plt.show()
 
 height_in =10/2
