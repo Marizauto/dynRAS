@@ -9,7 +9,7 @@ plt.rcParams['font.family'] = 'Arial'
 plt.rcParams['font.size'] = 12
 
 data = pd.read_csv('Experimental_data/co2_alkalinity.csv')
-simulation = pd.read_csv('Simulation_result/Jafarie_et_al_2024.csv')
+simulation = pd.read_csv('Simulation_result/Jafari_et_al_2024.csv')
 data2 = pd.read_csv('Experimental_data/ph_data.csv')
 
 height_in =10-(10/3)
@@ -76,7 +76,7 @@ axs1[0].set_xlim(0, 141)
 axs1[1].set_xlim(0, 141)
 axs1[2].set_xlim(0, 141)
 fig1.tight_layout(pad=1.0)
-plt.savefig('figure/Jafarie_et_al_settings/Comparison_simulation_data.png', dpi=300, bbox_inches='tight',pad_inches=0)
+plt.savefig('figure/Jafari_et_al_settings/Comparison_simulation_data.png', dpi=300, bbox_inches='tight',pad_inches=0)
 plt.show()
 
 height_in =10/2
@@ -110,7 +110,7 @@ axs1[0].set_xticks(xticks)
 axs1[0].set_yticks(yticks)
 axs1[1].set_xticks(xticks)
 axs1[1].set_yticks(np.arange(6, 9, 0.5))
-plt.savefig('figure/Jafarie_et_al_settings/20days.png', dpi=300, bbox_inches='tight',pad_inches=0)
+plt.savefig('figure/Jafari_et_al_settings/20days.png', dpi=300, bbox_inches='tight',pad_inches=0)
 plt.show()
 xticks = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 0, 1, 2, 3, 4, 5, 6, 7]
 simulation['Time_hours'] = (simulation['Time'] / 3600) % 24
@@ -147,5 +147,5 @@ ax.legend()
 plt.grid(axis='y', linestyle='--')
 plt.tight_layout()
 fig.tight_layout(pad=1.0)
-plt.savefig('figure/Jafarie_et_al_settings/TAN.png', dpi=300, bbox_inches='tight',pad_inches=0)
+plt.savefig('figure/Jafari_et_al_settings/TAN.png', dpi=300, bbox_inches='tight',pad_inches=0)
 plt.show()
