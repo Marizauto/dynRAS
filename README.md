@@ -69,8 +69,8 @@ When running the Class_definition_and_solver.py script, it generates two datafra
 ### Data
 
 To generate the same figures as in the paper, use either the output from the model simulations or the data available in the `Code_figure` directory. This directory contains:
-- `Experimental_data`: Folder with experimental data collected.
-- `Simulation_result`: Folder with simulation outputs for each scenario presented in the paper.
+- `Experimental_data`: Experimental data collected during the trial.
+- `Simulation_result`: Simulation outputs for each scenario presented in the paper.
 
 ### Creating Figures
 
