@@ -277,13 +277,13 @@ M_N= 14.01
 M_NO2 = 46.01
 M_CO2 = 44.01
 M_HCO3= 61.01
-
+#save the results in a csv file
+df_results.to_csv('results.csv',index=False)
 # alkalinity is calculated as follow Alkalinity = ([HCO3-] + 2*[CO3--] + [OH-]) * 50.04 to have it in mg/L
 # TAN is calculated as follow TAN = ([NH4] + [NH3])* 14.01 to have it in mg/L
 # NH3 is calculated as NH3-N in mg.l-1 the paper to be compared to experimental data : NH3-N=NH3*14.01
 # Time can be divide by 60*60*24 to have it in days
 # all the results in the paper are concentration in the fish tank but the results can be plot for biofilter and degasser as well
-
 # plot results for CO2 in the fish tank
 plt.plot(df_results['Time']/(60*60*24),df_results['CO2aq_FT']*M_CO2,label='CO2aq_FT')
 plt.xlabel('Time (days)')
@@ -310,6 +310,9 @@ plt.show()
 B1.dosing_time = np.array(B1.dosing_time)
 B1.dosing_amount_OH = np.array(B1.dosing_amount_OH)
 B1.dosing_amount_HCO3 = np.array(B1.dosing_amount_HCO3)
+df_dosing = pd.DataFrame({'Time':B1.dosing_time/(60*60*24),'OH_dosing':B1.dosing_amount_OH,'HCO3_dosing':B1.dosing_amount_HCO3})
+df_dosing.to_csv('dosing.csv',index=False)
+
 plt.plot(B1.dosing_time/(60*60*24),B1.dosing_amount_OH,label='OH_dosing')
 plt.plot(B1.dosing_time/(60*60*24),B1.dosing_amount_HCO3,label='HCO3_dosing')
 plt.xlabel('Time (days)')
