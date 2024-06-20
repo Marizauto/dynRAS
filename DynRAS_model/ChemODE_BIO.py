@@ -166,6 +166,7 @@ def chemODE_BIO_alk_control(Tank, params, t):
     d_AOB=Growth[2]
     d_NOB=Growth[3]
     T_HCO3 = 200/ 50.04
+    #T_HCO3 = 70/ 50.04
     CO2_Threshold=10/44.1
     pH = -np.log10(0.79 * 10 ** -6) + np.log10((T_HCO3 / (Tank.CO2aq)))
     T_H = (10 ** (-pH)) * 10 ** 3
