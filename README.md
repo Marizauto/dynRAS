@@ -75,7 +75,7 @@ To generate the same figures as in the paper, use either the output from the mod
 ### Creating Figures
 
 The scripts used to generate the figures are in the `Code_figure` directory:
-- `Jafarie_et_al_2024.py`: Generates figures for model validation.
+- `Jafari_et_al_2024.py`: Generates figures for model validation.
 - `Figure_scenario_1_2.py`: Generates figures for scenarios 1 and 2.
 - `Scenario_3.py`: Generates figures for scenario 3.
 
