@@ -22,8 +22,8 @@ To simulate the experimental set-up from Jafari et al. (2024), simply run the `C
 ### Scenario 1
 
 1. **For Alkalinity 200:**
-   - In `Class_definition_and_solver.py`, comment out lines 94, 96, 97, 98, uncomment line 95, `dY = chemODE_BIO_HCO3(self, params, t)`, uncomment out lines 168, 187, 200, comment out lines 169, 188, 201.
-   - In `ChemODE_BIO.py`, comment line 107 and uncomment line 106.
+   - In `Class_definition_and_solver.py`, comment out lines 94, 96, 97, 98; uncomment line 95, `dY = chemODE_BIO_HCO3(self, params, t)`, uncomment out lines 168, 187, 200, comment out lines 169, 188, 201.
+   - In `ChemODE_BIO.py`, comment out line 107 and uncomment line 106.
    - Run `Class_definition_and_solver.py`.
 
 2. **For Alkalinity 70:**
@@ -34,33 +34,25 @@ To simulate the experimental set-up from Jafari et al. (2024), simply run the `C
 ### Scenario 2
 
 1. **For Alkalinity 200:**
-   - In `Class_definition_and_solver.py`, comment out lines 94, 95, 97, 98.
-   - Uncomment the line `dY = chemODE_BIO_NaOH(self, params, t)`.
+   - In `Class_definition_and_solver.py`, comment out lines 94, 95, 97, 98,169, 188, 201; uncomment line 96 `dY = chemODE_BIO_NaOH(self, params, t)` and lines 168, 187, 200.
    - In `ChemODE_BIO.py`, uncomment line 136 and comment line 137.
-   - In `Class_definition_and_solver.py`, uncomment lines 168, 187, 200.
-   - Comment out lines 169, 188, 201.
    - Run `Class_definition_and_solver.py`.
 
-2. **For Alkalinity 70:**
+3. **For Alkalinity 70:**
    - In `ChemODE_BIO.py`, uncomment line 137 and comment line 136.
-   - In `Class_definition_and_solver.py`, comment out lines 168, 187, 200.
-   - Uncomment lines 169, 188, 201.
+   - In `Class_definition_and_solver.py`, comment out lines 168, 187, 200; uncomment lines 169, 188, 201.
    - Run `Class_definition_and_solver.py`.
 
 ### Scenario 3
 
 1. **For Alkalinity 200:**
-   - In `Class_definition_and_solver.py`, comment out lines 94, 95, 96, 98.
-   - Uncomment the line `dY = chemODE_BIO_alk_control(self, params, t)`.
+   - In `Class_definition_and_solver.py`, comment out lines 94, 95, 96, 98,169, 188, 201; uncomment line 97 `dY = chemODE_BIO_alk_control(self, params, t)` and lines 168, 187, 200.
    - In `ChemODE_BIO.py`, uncomment line 168 and comment line 169.
-   - In `Class_definition_and_solver.py`, uncomment lines 168, 187, 200.
-   - Comment out lines 169, 188, 201.
    - Run `Class_definition_and_solver.py`.
 
 2. **For Alkalinity 70:**
    - In `ChemODE_BIO.py`, comment line 168 and uncomment line 169.
-   - In `Class_definition_and_solver.py`, comment out lines 168, 187, 200.
-   - Uncomment lines 169, 188, 201.
+   - In `Class_definition_and_solver.py`, comment out lines 168, 187, 200; uncomment lines 169, 188, 201.
    - Run `Class_definition_and_solver.py`.
 
 ### pH Control Instead of Alkalinity Control
