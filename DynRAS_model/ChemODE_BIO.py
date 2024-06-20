@@ -199,7 +199,6 @@ def chemODE_BIO_pH_control(Tank, params, t):
     g_NOB=Growth[1]
     d_AOB=Growth[2]
     d_NOB=Growth[3]
-   #add_OH = 0 #comment or uncomment this line to turn on or off pH control using NaOH
     desired_pH = 7
     T_H = (10 ** -desired_pH) * 10 ** 3 #dosing with OH
     #add_OH = 0  # comment or uncomment this line to turn on or off pH control using NaOH
