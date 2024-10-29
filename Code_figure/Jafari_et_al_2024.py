@@ -105,7 +105,7 @@ for start in np.arange(0, 20, 1):
 axs1[1].set_xlim(0, 20)
 feeding_patch = Patch(color='gray', alpha=0.3, label='Feeding period')
 fig1.tight_layout(pad=1.0)
-axs1[1].legend(handles=[feeding_patch, *axs1[0].get_legend_handles_labels()[0]], loc='lower center', ncol=3, framealpha=0, facecolor='white', bbox_to_anchor=(0.5, 0.95))
+axs1[1].legend(handles=[feeding_patch, *axs1[1].get_legend_handles_labels()[0]], loc='lower center', ncol=3, framealpha=0, facecolor='white', bbox_to_anchor=(0.5, 0.95))
 axs1[0].set_xticks(xticks)
 axs1[0].set_yticks(yticks)
 axs1[1].set_xticks(xticks)
