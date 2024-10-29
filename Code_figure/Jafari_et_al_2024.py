@@ -57,7 +57,7 @@ axs1[1].set_yticks(yticks2)
 
 # Panel c
 axs1[2].plot(data['time'], data['alkalinity_mgl'], label='Alkalinity data', color='black')
-axs1[2].plot(simulation['Time']/(60*60*24), simulation['OH_FT']*50.04 + simulation['HCO3_FT']*50.04 + 2*simulation['CO32_FT']*50.04, label="Alkalinity simulation", color='blue')
+axs1[2].plot(simulation['Time']/(60*60*24), simulation['OH_FT']*50.04 + simulation['HCO3_FT']*50.04 + 2*simulation['CO32_FT']*50.04-simulation['H_FT']*50.04, label="Alkalinity simulation", color='blue')
 axs1[2].legend(loc='lower center', ncol=2, framealpha=0, facecolor='white', bbox_to_anchor=(0.5, 0.94))
 axs1[2].set_title('c.', loc='left', fontsize=12, fontweight='bold')
 axs1[2].set_ylabel(r'$\mathbf{Alkalinity} $' + '\n' + r'$\mathbf{(mg\cdot l^{-1}CaCO_3)}$', color='black',fontweight='bold')
